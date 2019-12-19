@@ -1,0 +1,100 @@
+
+///TODO14   product.filter.ts 
+return items.filter(item => item.name.toLowerCase().index0f(args.toLowerCase()) !== -1);   
+
+
+///TODO15   product-list.component.ts 
+this._productService.getProduct().subscribe(
+data =>this.setProducts(data),
+err =>this.logError(err) 
+
+
+///TODO16   product-list.component.ts 
+if(this.currentProductType === 'fruits')
+{
+return this.fruits;
+}
+else if(this.currentProductType === 'vegetables')
+{
+return this.vegetables;
+}
+else if(this.currentProductType === 'grocery')
+{
+return this.grocery;
+} 
+
+
+///TODO17   product-list.component.ts 
+let canNavigate =this._productService.getMyBasket() &&
+this._productService.getMyBasket().length >0;
+this.router.navigate(['/', 'basket', {data: canNavigate}] ); 
+
+
+///TODO18   product-list.component.ts 
+this._productService.addProductToBasket(product)
+this.tota Iltems = this._productService.getTotalBasketQuantity();  
+
+
+///TODO19   product.services.ts 
+if(!this.myBasket)
+{
+this.myBasket = [];
+}
+var index = this.myBasket.indexOf(product);
+if(index!== -1){
+this.myBasket[index].basketCount++;
+}
+else{
+if(!product.basketCount){
+product.basketCount = 0;
+}
+product.basketCount++;
+this.myBasket.push(product);
+}
+this.setTotalProductBasketPrice(product); 
+
+
+
+///TODO20   product.services.ts 
+var tCount:number = O;
+if(this.myBasket){
+this.myBasket.forEach(function(product: Product){
+tCount = tCount + product.basketCount;
+})
+}
+return tCount;   
+
+
+///TODO21   product.services.ts 
+if(this.myBasket){
+this.myBasket.forEach(function(product: Product){
+product.basketCount = O;
+product.basketPrice = 0;
+})
+}
+this.myBasket = null;  
+
+
+
+///TODO22   product.services.ts 
+var tPrice:number = O;
+if(this.myBasket){
+this.myBasket.forEach(function(product: Product){
+tPrice = tPrice + product.basketPrice;
+})
+}
+return tPrice;  
+
+
+///TODO23   product.services.ts 
+return this.http.get(this.productsUrl)
+.map((res: Response) => this.extractProduct(res))
+.catch(this.handleError); 
+
+
+
+///TODO24   product.services.ts
+let errMsg = (error.message) ? error.message :
+error.status ? ‘${error.status} - ${error.statusText}‘ : 'Server error';
+return Observable.throw(errMsg);   
+

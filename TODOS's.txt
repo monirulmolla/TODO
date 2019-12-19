@@ -1,0 +1,113 @@
+ //TODO3
+ .map((response: Response) => {
+                // login successful if there's a jwt token in the response
+                let user = response.json();
+                if (user && user.token) {
+                    // store user details and jwt token in local storage to keep user logged in between page refreshes
+                    localStorage.setItem('currentUser', JSON.stringify(user));
+                }
+            });
+
+//New 
+.map((response: Response) => response.json())
+.catch((error: Response) =>{
+this.errorService.handleError(error.json());
+return Observable.throw(error.json());
+});  
+
+
+
+			
+ //TODO4
+this.authService.logout();
+this.router.navigate(['/', 'signin']);
+
+//new
+this.router.navigate(['/', 'signin']);
+
+
+//TODO2
+ (user) => {
+                        this.router.navigate(['signup']);
+                    },
+                    (error) => {
+                        console.log(error);
+                    }
+					
+//New
+data => {			
+this.router.navigate(['/', 'signin']);
+					
+ 
+ //TODO1
+ userName: new FormControl('', Validators.required),
+            email: new FormControl('', [Validators.required,Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+')]),
+            password: new FormControl('', [Validators.required, Validators.minLength(6)])
+			
+//New		
+userName: new FormControl(null, [Validators.required, Validators.maxLength(20),
+Validators.minLength(8)]),
+email: new FormControl(null, [
+Validators.required,
+Validators.pattern(" [a-zO-9 !#$%&‘*+/=?"_‘{ | }~-]+(?:\.[a-zO-9!#$%&'*+/=?"_‘{ | }"’-
+]+)*@(?:[a—zO-9](?:[a-zO-9—]*[a-zO-9])?\.)+[a-zO—9](?z[a-zO-9-]*[a-zO-9])?")
+1),
+password: new FormControl(null, [Validators.required, Validators.minLength(6)])
+
+			
+			
+			
+			
+			
+			
+			
+			
+
+			
+			
+//TODO7			
+  .map((response: Response) => {
+                // login successful if there's a jwt token in the response
+                let user = response.json();
+                if (user && user.token) {
+                    // store user details and jwt token in local storage to keep user logged in between page refreshes
+                    localStorage.setItem('currentUser', JSON.stringify(user));
+                }
+            });
+			
+//new
+.map((response: Response) => response.json())
+.catch((error: Response) =>{
+this.errorService.handleError(error.json());
+return Observable.throw(error.json());   	
+			
+			
+//TODO5		
+email: new FormControl('', [Validators.required,Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+')]),
+            password: new FormControl('', [Validators.required, Validators.minLength(6)])
+
+//new
+email: new FormContro|(null,[
+Validators.required,
+Validators.pattern(" [a-zO-9 !#$%&'*+/=?"_‘{| }~-]+(?:\.[a-zO-9!#$%&'*+/=?"_‘{ | }"’—
+]+)*@(?:[a-zO—9](?:[a-zO-9-]*[a-zO-9])?\.)+[a-zO-9](?:[a-zO—9-]*[a-zO-9])?")
+1),
+password: new FormControl(null, Validators.required)  
+
+
+
+			
+//TODO6
+ user => {
+                    this.router.navigate(['signin']);
+                },
+                error => {
+                }
+				
+//new
+data =>{
+IocaIStorage.setltem('token', data.token);
+IocaIStorage.set|tem('userld', data.user|d);
+this.router.navigate(['/', 'home']);
+},
+error => console.error(error)  

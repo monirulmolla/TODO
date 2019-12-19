@@ -1,0 +1,22 @@
+///TODO25   product.service.ts 
+return this.myBasket;
+
+///TODO26   basket.component.ts 
+this.myBasket = this._productService.getMyBasket(); 
+
+///TODO27   basket.component.ts 
+this.quantity = this._productService.getTotaIBasketQuantity();
+this.totalPrice = this._productService.getTotalPrice(); 
+
+///TODO28   my-basket.component.ts 
+this.router.navigate(['/', 'checkout']); 
+
+///TODO29   checkout.component.ts 
+this.paymentMessage = this.authService.isLoggedln() ? 'You can place your order ' + items : 'Before you place your order > Signln'; 
+
+///TODO30   basket.component.ts 
+this.router.navigate(['/', 'home']);   
+
+
+///TODO31   basket.component.ts 
+this._productService.resetBasket();  

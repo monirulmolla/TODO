@@ -1,0 +1,23 @@
+///TODO8   Category.component.ts 
+this.router.navigate(['/', 'productlist']);  
+
+///TODO9   Category-list.component.ts 
+data => this.categories = data,
+err => this.logError(err) 
+
+
+///TODO10   Category-list.component.ts 
+this.errorService.handleError(error);   
+
+
+///TODO11   Category.service.ts 
+return this.http.get(this.categoryUrl)
+.map((res: Response) => this.extractCategory(res))
+.catch(this.handIeError);   
+
+///TODO12   CanActivateGuard.ts
+window.confirm('There is no item in basket. Please add item(s) in basket!');
+return false;
+
+///TODO13   LogedInAuthGuard.ts
+return this.authService.isLoggedIn();  

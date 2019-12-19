@@ -1,0 +1,18 @@
+///TODON5   app.js 
+var mongoose = require('mongoose');
+	
+	
+///TODON6   app.js 
+mongoose.connect('localhost:27017/ebasket');
+
+
+// TODON1    models/user.js
+var schema = new Schema({
+    userName: {type: String, required: true},
+    password: {type: String, required: true},
+    email: {type: String, required: true, unique: true}
+});
+
+
+///TODON2    models/user.js
+module.exports = mongoose.model('User', schema);
